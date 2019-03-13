@@ -1,5 +1,8 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import InlineDiv from './components/UI/InlineDiv';
+import Home from './containers/Home';
 
 const GlobalStyle = createGlobalStyle`
   *,
@@ -28,7 +31,11 @@ const RootDiv = styled('div')`
 const App = () => (
   <RootDiv>
     <GlobalStyle />
-    <h1>React-Spring</h1>
+    <Router>
+      <InlineDiv>
+        <Route path="/" component={Home} />
+      </InlineDiv>
+    </Router>
   </RootDiv>
 );
 
