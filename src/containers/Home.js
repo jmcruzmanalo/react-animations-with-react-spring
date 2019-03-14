@@ -4,10 +4,15 @@ import { useSpring, useSprings, animated as a } from 'react-spring';
 import MaxDiv from '../components/UI/MaxDiv';
 import ProjectImageCover from '../components/Home/ProjectImageCover';
 import ProjectImageContainer from '../components/Home/ProjectImageContainer';
+import MaskedListItem from '../components/Home/MaskedListItem';
 import betchesImg from '../assets/portfolio/p-betches.jpg';
 import allpro from '../assets/portfolio/p-allpro.jpg';
 import cornerstone from '../assets/portfolio/p-cornerstone.jpg';
-import MaskedListItem from '../components/Home/MaskedListItem';
+import taylor from '../assets/portfolio/p-taylor.jpg';
+import modernmd from '../assets/portfolio/p-modernmd.jpg';
+import storyverse from '../assets/portfolio/p-storyverse.jpg';
+import gtscareers from '../assets/portfolio/p-gts.jpg';
+import hennessey from '../assets/portfolio/p-hennessey.jpg';
 
 const Root = styled(MaxDiv)`
   position: relative;
@@ -36,9 +41,19 @@ const ProjectsList = styled('ul')`
   flex-direction: column;
   align-items: center;
   z-index: 20;
+  font-size: 160px;
 `;
 
-const images = [betchesImg, allpro, cornerstone];
+const images = [
+  betchesImg,
+  allpro,
+  cornerstone,
+  taylor,
+  modernmd,
+  storyverse,
+  gtscareers,
+  hennessey,
+];
 
 const Home = () => {
   const [isHovering, setIsHovering] = useState(false);
@@ -66,11 +81,11 @@ const Home = () => {
     'betches',
     'allpro',
     'cornerstone',
-    // 'taylor',
-    // 'modernmd',
-    // 'storyverse',
-    // 'gtscareers',
-    // 'hennessey',
+    'taylor',
+    'modernmd',
+    'storyverse',
+    'gtscareers',
+    'hennessey',
   ];
 
   const mouseOver = (index) => {
@@ -88,7 +103,7 @@ const Home = () => {
         {piSprings.map((props, index) => {
           const img = images[index];
           return (
-            <a.div style={props}>
+            <a.div key={`${listItems[index]}_image_key`} style={props}>
               <img src={img} alt="" />
             </a.div>
           );
@@ -99,7 +114,7 @@ const Home = () => {
       <ProjectsList onMouseOver={mouseOut}>
         {listItems.map((item, index) => (
           <MaskedListItem
-            key={`${item.text}_key`}
+            key={`${item}_key`}
             onMouseOver={(e) => {
               e.stopPropagation();
               mouseOver(index);

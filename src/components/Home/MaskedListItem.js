@@ -5,8 +5,8 @@ import { animated as a, useSpring } from 'react-spring';
 const Item = styled(a.li)`
   position: relative;
   font-family: 'Montserrat', sans-serif;
-  font-size: 120px;
   font-weight: 800;
+  font-size: inherit;
   padding: 32px 0;
   display: inline-block;
   cursor: pointer;
@@ -39,7 +39,9 @@ const Mask = styled(a.p)`
 `;
 
 const MaskedListItem = (props) => {
-  const { text, hovered, otherHovered } = props;
+  const {
+    text, hovered, otherHovered, onMouseOver,
+  } = props;
   let hoverState = '50%';
   if (hovered) {
     hoverState = '100%';
@@ -54,7 +56,7 @@ const MaskedListItem = (props) => {
   });
 
   return (
-    <Item style={colorSpring} {...props}>
+    <Item style={colorSpring} onMouseOver={onMouseOver}>
       {text}
       <Mask style={widthSpring}>
         <span>{text}</span>

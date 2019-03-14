@@ -2,7 +2,7 @@ import { animated as a } from 'react-spring';
 import styled from 'styled-components';
 
 const ProjectImageCover = styled(a.div)`
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 50%;
