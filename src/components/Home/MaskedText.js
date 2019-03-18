@@ -11,7 +11,6 @@ const Item = styled(a.li)`
   display: inline-block;
   cursor: pointer;
   color: rgba(37, 48, 105, 0.15);
-  /* width: ${({ width }) => width}; */
   width: auto;
 `;
 
@@ -33,12 +32,11 @@ const Mask = styled(a.p)`
     right: 0;
     top: 0;
     display: inline-block;
-    width: ${({ width }) => width};
     width: auto;
   }
 `;
 
-const MaskedListItem = (props) => {
+const MaskedText = (props) => {
   const {
     text, hovered, otherHovered, onMouseOver,
   } = props;
@@ -65,4 +63,4 @@ const MaskedListItem = (props) => {
   );
 };
 
-export default MaskedListItem;
+export default MaskedText;

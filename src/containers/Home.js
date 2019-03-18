@@ -4,7 +4,8 @@ import { useSpring, useSprings, animated as a } from 'react-spring';
 import MaxDiv from '../components/UI/MaxDiv';
 import ProjectImageCover from '../components/Home/ProjectImageCover';
 import ProjectImageContainer from '../components/Home/ProjectImageContainer';
-import MaskedListItem from '../components/Home/MaskedListItem';
+import MaskedText from '../components/Home/MaskedText';
+import ProjectsList from '../components/Home/ProjectsList';
 import betchesImg from '../assets/portfolio/p-betches.jpg';
 import allpro from '../assets/portfolio/p-allpro.jpg';
 import cornerstone from '../assets/portfolio/p-cornerstone.jpg';
@@ -27,21 +28,6 @@ const PageIndicator = styled('h1')`
   font-size: 12px;
   text-align: center;
   margin: 0 0 52px 0;
-`;
-
-const ProjectsList = styled('ul')`
-  position: relative;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  text-align: center;
-  overflow: auto;
-  padding: 21px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 20;
-  font-size: 160px;
 `;
 
 const images = [
@@ -113,7 +99,7 @@ const Home = () => {
       <PageIndicator>Our Projects</PageIndicator>
       <ProjectsList onMouseOver={mouseOut}>
         {listItems.map((item, index) => (
-          <MaskedListItem
+          <MaskedText
             key={`${item}_key`}
             onMouseOver={(e) => {
               e.stopPropagation();
